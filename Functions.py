@@ -35,12 +35,12 @@ def login(Users):
                         print("Pin incorreto.")
                 if logged:
                     clear_console()
-                    ExibirMenu(user)  
+                    return user 
         if not user_found:
             print("Cartão não encontrado.")
 
 
-def clear_console(): # Fnção de limpeza de tela
+def clear_console(): # Function to clear the terminal
     # Windows uses 'cls', Linux/macOS use 'clear'
     if os.name == "posix":
         command = "clear"
@@ -49,6 +49,8 @@ def clear_console(): # Fnção de limpeza de tela
     os.system(command)
 
 def ExibirMenu(user):
+    clear_console()
+
     menu = { 
     1: "Consultar saldo",
     2: "Realizar Levantamento",
