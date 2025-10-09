@@ -52,7 +52,7 @@ def clear_console(): # Function to clear the terminal
 def show_menu(user):
     clear_console()
 
-    menu = { 
+    menu = {
     1: "Consultar saldo",
     2: "Realizar Levantamento",
     3: "Realizar Depósito",
@@ -64,9 +64,6 @@ def show_menu(user):
     print(f"Bem vindo {user.name}!")
     for key, value in menu.items():
         print(f"{key}: {value}")
-        
-def show_statistics():
-    pass        
         
 def search_user(Users, user_iban):
     error_message = "Ocorreu um erro na operacao."

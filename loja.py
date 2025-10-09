@@ -24,7 +24,7 @@ while True: # The ATM cannot be turned off by users, so this cycle can stay runn
     while opt != 6:
         Functions.show_menu(user) # Exhibits the menu for an specific user, with their information
 
-        try: # Try is needed to ensure the user inserts an INTERGER
+        try: # Try is needed to ensure the user inserts an INTEGER
             opt = int(input("Opção desejada: ")) 
             match(opt):
                 case 1: # Prints the users balance

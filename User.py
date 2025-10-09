@@ -92,8 +92,8 @@ class User:
                     input()
                     continue
             
-            if not(0 < ammount < Decimal(self.balance)):
-                print("!!! Erro: Montante superior ao saldo da sua conta.")
+            if not(0 < ammount <= Decimal(self.balance)):
+                print("!!! Erro: Montante invalido! Verifique se o valor e positivo e dentro do seu saldo disponivel.")
                 print("(Pressione Enter para tentar de novo)")
                 input()
                 continue
@@ -103,7 +103,7 @@ class User:
             
             #TODO save data in json
             print("Operacao bem sucedida!")
-            
+            input()
             return
                 
             
