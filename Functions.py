@@ -1,6 +1,7 @@
 import os
 import json
 import User
+import Errors
 
 def get_Users(file):
     error_Message = "Error opening file"
@@ -48,7 +49,7 @@ def clear_console(): # Function to clear the terminal
         command = "cls" 
     os.system(command)
 
-def ExibirMenu(user):
+def show_menu(user):
     clear_console()
 
     menu = { 
@@ -63,3 +64,31 @@ def ExibirMenu(user):
     print(f"Bem vindo {user.name}!")
     for key, value in menu.items():
         print(f"{key}: {value}")
+        
+def show_statistics():
+    pass        
+        
+def search_user(Users, user_iban):
+    error_message = "Ocorreu um erro na operacao."
+    for usr in Users:
+        if usr.IBAN != user_iban:
+            continue
+        return usr
+    return Errors.Error(error_message, None)
+
+def get_cast_input(cast_type, message):
+    error_message = ""
+    input_str = input(message)
+    if input_str == ":q":
+        return None
+    
+    try:
+        cast = cast_type(input_str)
+        return cast
+    
+    #TODO treat exception types here
+    #except TypeError as e:
+        #error_message = ...    
+    except Exception as e:
+        error_message = "Ocorreu um erro na operacao."
+    return Errors.Error(error_message, e)

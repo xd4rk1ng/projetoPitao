@@ -7,6 +7,7 @@ import json
 import Functions
 
 
+
 ## ENTRY POINT ##
 file_name = "dataBase.json"
 Users = Functions.get_Users(file_name)
@@ -21,7 +22,7 @@ while True: # The ATM cannot be turned off by users, so this cycle can stay runn
     user = Functions.login(Users)
 
     while opt != 6:
-        Functions.ExibirMenu(user) # Exhibits the menu for an specific user, with their information
+        Functions.show_menu(user) # Exhibits the menu for an specific user, with their information
 
         try: # Try is needed to ensure the user inserts an INTERGER
             opt = int(input("Opção desejada: ")) 
@@ -35,8 +36,7 @@ while True: # The ATM cannot be turned off by users, so this cycle can stay runn
                     pass
                     break
                 case 4:
-                    pass
-                    break
+                    user.TransferirPara(Users)
                 case 5:
                     pass
                     break
