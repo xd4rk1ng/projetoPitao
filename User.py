@@ -39,17 +39,11 @@ class User:
         self.balance -= cash
         print("Ejetando o montante requisitado...")
 
-        # Update the in-memory list
-        # TODO: maybe do outside of method, in main loop?
-        for usr in Users:
-            if usr.credit_card == self.credit_card:
-                usr.balance = self.balance
-                break
 
         # Save to JSON
-        data = [vars(u) for u in Users]
+        data_dict = [vars(u) for u in Users]
         with open(file, "w") as f:
-            json.dump(data, f, indent=4, default=str)
+            json.dump(data_dict, f, indent=4, default=str)
 
         print("Saldo atualizado com sucesso.")
         input()
