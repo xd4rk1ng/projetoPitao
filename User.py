@@ -3,12 +3,13 @@ from decimal import Decimal
 import Functions
 
 class User:
-    def __init__ (self, IBAN, credit_card, pin, name, balance):
+    def __init__ (self, IBAN, credit_card, pin, name, balance, history):
         self.IBAN = IBAN
         self.credit_card = credit_card
         self.pin = pin
         self.name = name
         self.balance = Decimal(balance)
+        self.history = history
 
     def __str__(self):
         return f"{self.name}(€{self.balance})"
@@ -46,6 +47,7 @@ class User:
 
             print("Ejetando o montante requisitado...")
             self.balance -= ammount
+            self.history.append(f"LV: Levantamento no valor de {ammount}")
 
             Functions.save_users(Users, file)
             print("Saldo atualizado com sucesso.")
@@ -75,6 +77,8 @@ class User:
                 continue
             
             self.balance += ammount
+            self.history.append(f"DP: Deposito no valor de {ammount}")
+            
             Functions.save_users(Users, file)
             print("Saldo atualizado com sucesso.")
             input()
@@ -104,6 +108,11 @@ class User:
                 print("(Pressione Enter para tentar de novo)")
                 input()
                 continue
+            elif recipient == self:
+                print("!!! Erro: O IBAN que introduziu e o seu!")
+                print("(Pressione Enter para tentar de novo)")
+                input()
+                continue
             
             Functions.clear_console()
             print(f"Transferencia para IBAN: {iban}")
@@ -129,7 +138,7 @@ class User:
             print("Transferindo para destinatario...")
             recipient.balance += ammount
             self.balance -= ammount
-            
+            self.history.append(f"TF: Transferencia no valor de {ammount} para {recipient.name}:{iban}")
             
             Functions.save_users(Users, file)
             print("Saldo atualizado com sucesso.")

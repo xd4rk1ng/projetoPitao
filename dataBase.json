@@ -4,69 +4,82 @@
         "credit_card": "01",
         "pin": "0001",
         "name": "Sergio",
-        "balance": "4947.48"
+        "balance": "2220.00",
+        "history": []
     },
     {
         "IBAN": "PT5000020123123456789001",
         "credit_card": "02",
-        "pin": "0002",
+        "pin": "2444",
         "name": "Rui Sigma",
-        "balance": "1000"
+        "balance": "3747.48",
+        "history": [
+            "TF: Transferencia no valor de 200 para Sergio:PT5000020123123456789000",
+            "TF: Transferencia no valor de 20 para Sergio:PT5000020123123456789000"
+        ]
     },
     {
         "IBAN": "PT5000020123123456789002",
         "credit_card": "0000-0000-0000-0003",
         "pin": "0003",
         "name": "User3",
-        "balance": "1000"
+        "balance": "1000",
+        "history": []
     },
     {
         "IBAN": "PT5000020123123456789003",
         "credit_card": "0000-0000-0000-0004",
         "pin": "0004",
         "name": "User4",
-        "balance": "1000"
+        "balance": "1000",
+        "history": []
     },
     {
         "IBAN": "PT5000020123123456789004",
         "credit_card": "0000-0000-0000-0005",
         "pin": "0005",
         "name": "User5",
-        "balance": "1000"
+        "balance": "1000",
+        "history": []
     },
     {
         "IBAN": "PT5000020123123456789005",
         "credit_card": "0000-0000-0000-0006",
         "pin": "0006",
         "name": "User6",
-        "balance": "1000"
+        "balance": "1000",
+        "history": []
     },
     {
         "IBAN": "PT5000020123123456789006",
         "credit_card": "0000-0000-0000-0007",
         "pin": "0007",
         "name": "User7",
-        "balance": "1000"
+        "balance": "1000",
+        "history": []
     },
     {
         "IBAN": "PT5000020123123456789007",
         "credit_card": "0000-0000-0000-0008",
         "pin": "0008",
         "name": "User8",
-        "balance": "1000"
+        "balance": "1000",
+        "history": []
     },
     {
         "IBAN": "PT5000020123123456789008",
         "credit_card": "0000-0000-0000-0009",
         "pin": "0009",
         "name": "User9",
-        "balance": "1000"
+        "balance": "1000",
+        "history": []
     },
     {
         "IBAN": "PT5000020123123456789009",
         "credit_card": "0000-0000-0000-0010",
         "pin": "0010",
         "name": "User10",
-        "balance": "1000"
+        "balance": "1000",
+        "history": []
     }
 ]
