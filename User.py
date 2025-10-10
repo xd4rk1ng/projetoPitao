@@ -27,7 +27,7 @@ class User:
                     print("Operação cancelada.")
                     input()
                     return
-                case Errors.Error(message=msg):
+                case Functions.Error(message=msg):
                     print(f"!!! Erro: {msg}")
                     print("(Pressione Enter para tentar de novo)")
                     input()
@@ -61,14 +61,14 @@ class User:
                     print("Operação cancelada.")
                     input()
                     return
-                case Errors.Error(message=msg):
+                case Functions.Error(message=msg):
                     print(f"!!! Erro: {msg}")
                     print("(Pressione Enter para tentar de novo)")
                     input()
                     continue
                 
             recipient = Functions.search_user(Users, iban)
-            if isinstance(recipient, Errors.Error):
+            if isinstance(recipient, Functions.Error):
                 print("!!! Erro: Foi impossivel encontrar utilizador na base de dados.")
                 print("(Pressione Enter para tentar de novo)")
                 input()
@@ -83,7 +83,7 @@ class User:
                     print("Operacao cancelada.")
                     input()
                     return
-                case Errors.Error(message=msg):
+                case Functions.Error(message=msg):
                     print(f"!!! Erro: {msg}")
                     print("(Pressione Enter para tentar de novo)")
                     input()
