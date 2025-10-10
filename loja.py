@@ -3,9 +3,7 @@
 ### Aqui teremos o script principal para a execucao do nosso programa ###
 import os # Para o system(cls)
 import User # Nossa classe
-import json
 import Functions
-import Errors
 
 
 
@@ -32,7 +30,7 @@ while True: # The ATM cannot be turned off by users, so this cycle can stay runn
                     print("Operação cancelada.")
                     input()
                     break
-                case Errors.Error(message=msg):
+                case Functions.Error(message=msg):
                     print(f"!!! Erro: {msg}")
                     print("(Pressione Enter para tentar de novo)")
                     input()

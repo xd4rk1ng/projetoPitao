@@ -1,8 +1,6 @@
 from decimal import Decimal
-import json
 
 import Functions
-import Errors
 
 class User:
     def __init__ (self, IBAN, credit_card, pin, name, balance):
