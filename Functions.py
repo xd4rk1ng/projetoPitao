@@ -92,12 +92,10 @@ def get_cast_input(cast_type, message):
         return None
     
     try:
-        cast = cast_type(input_str)
-        return cast
-    
-    #TODO treat exception types here
-    #except TypeError as e:
-        #error_message = ...    
+        return cast_type(input_str)
+    except ValueError as e:
+        return Errors.Error("Valor inválido fornecido.", e)
+    except TypeError as e:
+        return Errors.Error("Tipo incorreto de valor.", e)
     except Exception as e:
-        error_message = "Ocorreu um erro na operacao."
-    return Errors.Error(error_message, e)
+        return Errors.Error("Erro inesperado na operação.", e)

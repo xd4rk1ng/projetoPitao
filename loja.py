@@ -5,6 +5,7 @@ import os # Para o system(cls)
 import User # Nossa classe
 import json
 import Functions
+import Errors
 
 
 
@@ -21,27 +22,32 @@ while True: # The ATM cannot be turned off by users, so this cycle can stay runn
     opt = None
     user = Functions.login(Users)
 
-    while opt != 6:
+    while True:
         Functions.show_menu(user) # Exhibits the menu for an specific user, with their information
 
         try: # Try is needed to ensure the user inserts an INTEGER
-            opt = int(input("Opção desejada: ")) 
-            match(opt):
-                case '1': # Print user balance
+            opt = Functions.get_cast_input(str,"Opção desejada: ")
+            match opt:
+                case None:
+                    print("Operação cancelada.")
+                    input()
+                    break
+                case Errors.Error(message=msg):
+                    print(f"!!! Erro: {msg}")
+                    print("(Pressione Enter para tentar de novo)")
+                    input()
+                    
+                case "1": # Print user balance
                     print(f"Saldo disponivel: € {user.balance}")
                     input()            
-                case '2': # Take out cash
+                case "2": # Take out cash
                     user.LevantarSaldo(Users)
-                case '3': # Deposit cash
-                    pass
-                    break
-                case '4': # Transfer to user
+                case "3": # Deposit cash
+                    user.Depositar(Users)
+                case "4": # Transfer to user
                     user.TransferirPara(Users)
-                case '5': # Display transfer history
-                    pass
-                    break
-                case ':q':
-                    break # Logout
+                case "5": # Display transfer history
+                    user.MostrarHistorico(Users)
                 case _:
                     print("!Insira uma opção valida!")
                     input()
