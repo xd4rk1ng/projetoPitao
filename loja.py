@@ -27,21 +27,21 @@ while True: # The ATM cannot be turned off by users, so this cycle can stay runn
         try: # Try is needed to ensure the user inserts an INTEGER
             opt = int(input("Opção desejada: ")) 
             match(opt):
-                case 1: # Prints the users balance
+                case '1': # Print user balance
                     print(f"Saldo disponivel: € {user.balance}")
                     input()            
-                case 2: # Takes out cash
+                case '2': # Take out cash
                     user.LevantarSaldo(Users)
-                case 3:
+                case '3': # Deposit cash
                     pass
                     break
-                case 4:
+                case '4': # Transfer to user
                     user.TransferirPara(Users)
-                case 5:
+                case '5': # Display transfer history
                     pass
                     break
-                case 6:
-                    break
+                case ':q':
+                    break # Logout
                 case _:
                     print("!Insira uma opção valida!")
                     input()

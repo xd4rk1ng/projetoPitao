@@ -39,11 +39,8 @@ class User:
         self.balance -= cash
         print("Ejetando o montante requisitado...")
 
-
-        # Save to JSON
-        data_dict = [vars(u) for u in Users]
-        with open(file, "w") as f:
-            json.dump(data_dict, f, indent=4, default=str)
+        
+        Functions.save_users(Users, file)
 
         print("Saldo atualizado com sucesso.")
         input()

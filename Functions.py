@@ -4,7 +4,7 @@ import User
 import Errors
 
 def get_Users(file):
-    error_Message = "Error opening file"
+    error_Message = "Error loading file"
     try:
         with open(file, "r") as f: # Salva nosso JSON como F
             data = json.load(f) # Guarda numa variavel
@@ -16,6 +16,18 @@ def get_Users(file):
     except Exception as e:
         print(f"{error_Message}: {e}")
         return []
+    
+def save_users(Users, file):
+    error_Message = "Error Saving File"
+    # Save to JSON
+    try:
+        data_dict = [vars(u) for u in Users]
+        with open(file, "w") as f:
+            json.dump(data_dict, f, indent=4, default=str)
+    except Exception as e:
+        print(f"{error_Message: {e}}")
+        return
+    
     
 def login(Users):
     logged = False
@@ -53,12 +65,12 @@ def show_menu(user):
     clear_console()
 
     menu = {
-    1: "Consultar saldo",
-    2: "Realizar Levantamento",
-    3: "Realizar Depósito",
-    4: "Realizar Transferência",
-    5: "Consultar Movimentos",
-    6: "Sair"
+    '1 ': "Consultar saldo",
+    '2 ': "Realizar Levantamento",
+    '3 ': "Realizar Depósito",
+    '4 ': "Realizar Transferência",
+    '5 ': "Consultar Movimentos",
+    ':q': "Sair"
     }
     
     print(f"Bem vindo {user.name}!")
