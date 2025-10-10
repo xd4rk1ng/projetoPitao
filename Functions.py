@@ -90,7 +90,7 @@ def search_user(Users, user_iban):
         if usr.IBAN != user_iban:
             continue
         return usr
-    return Functions.Error(error_message, None)
+    return Error(error_message, None)
 
 def get_cast_input(cast_type, message):
     error_message = ""
@@ -101,8 +101,8 @@ def get_cast_input(cast_type, message):
     try:
         return cast_type(input_str)
     except ValueError as e:
-        return Functions.Error("Valor inválido fornecido.", e)
+        return Error("Valor inválido fornecido.", e)
     except TypeError as e:
-        return Functions.Error("Tipo incorreto de valor.", e)
+        return Error("Tipo incorreto de valor.", e)
     except Exception as e:
-        return Functions.Error("Erro inesperado na operação.", e)
+        return Error("Erro inesperado na operação.", e)
