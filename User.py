@@ -15,6 +15,10 @@ class User:
     
     from decimal import Decimal
 
+    def MostrarSaldo(self):
+        print(f"Saldo disponivel: € {self.balance}")
+        input()   
+        
     def LevantarSaldo(self, Users, file="dataBase.json"):
         
         #TODO func (input_string)
@@ -47,9 +51,36 @@ class User:
             print("Saldo atualizado com sucesso.")
             input()
             return
-    def MostrarSaldo(self):
-        print(f"Saldo disponivel: € {self.balance}")
-        input()   
+    
+    def Depositar(self, Users, file="dataBase.json"):
+        while True:
+            Functions.clear_console()
+            print("Insira por favor o dinheiro no local indicado...")
+            ammount = Functions.get_cast_input(Decimal, "> Inserir quantia superior a 10 : ")
+            match ammount:
+                case None:
+                    print("Operação cancelada")
+                    input()
+                    return
+                case Functions.Error(message=msg):
+                    print(f"!!! Erro: {msg}")
+                    print("(Pressione Enter para tentar de novo)")
+                    input()
+                    continue
+            
+            print("Processando...")
+            if ammount < 10:
+                print("!!! Erro: Montante invalido! Verifique se o valor que introduziu e superior a 10.")
+                print("(Pressione Enter para tentar de novo)")
+                continue
+            
+            self.balance += ammount
+            Functions.save_users(Users, file)
+            print("Saldo atualizado com sucesso.")
+            input()
+            return
+            
+            
     
     def TransferirPara(self, Users, file="dataBase.json"):
         while True:

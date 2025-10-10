@@ -3,14 +3,14 @@
         "IBAN": "PT5000020123123456789000",
         "credit_card": "01",
         "pin": "0001",
-        "name": "ADMIN",
+        "name": "Sergio",
         "balance": "4947.48"
     },
     {
         "IBAN": "PT5000020123123456789001",
-        "credit_card": "0000-0000-0000-0002",
+        "credit_card": "02",
         "pin": "0002",
-        "name": "User2",
+        "name": "Rui Sigma",
         "balance": "1000"
     },
     {
