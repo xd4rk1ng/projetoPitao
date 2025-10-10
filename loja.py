@@ -38,8 +38,7 @@ while True: # The ATM cannot be turned off by users, so this cycle can stay runn
                     input()
                     
                 case "1": # Print user balance
-                    print(f"Saldo disponivel: € {user.balance}")
-                    input()            
+                    user.MostrarSaldo()         
                 case "2": # Take out cash
                     user.LevantarSaldo(Users)
                 case "3": # Deposit cash
