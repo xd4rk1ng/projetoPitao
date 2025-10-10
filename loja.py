@@ -42,11 +42,11 @@ while True: # The ATM cannot be turned off by users, so this cycle can stay runn
                 case "2": # Take out cash
                     user.LevantarSaldo(Users)
                 case "3": # Deposit cash
-                    user.Depositar(Users)
+                    user.Depositar(Users) #TODO 
                 case "4": # Transfer to user
                     user.TransferirPara(Users)
                 case "5": # Display transfer history
-                    user.MostrarHistorico(Users)
+                    user.MostrarHistorico(Users) #TODO 
                 case _:
                     print("!Insira uma opção valida!")
                     input()
