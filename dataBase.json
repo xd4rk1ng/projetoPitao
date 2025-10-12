@@ -1,29 +1,48 @@
 [
     {
-        "IBAN": "PT5000020123123456789000",
-        "credit_card": "01",
-        "pin": "0001",
-        "name": "Sergio",
-        "balance": "2220.00",
-        "history": []
+    "IBAN": "PT5000020123123456789000",
+    "credit_card": "01",
+    "pin": "0001",
+    "name": "Sergio",
+    "balance": "1093.63",
+    "history": [
+        "DP [12-10-2025 08:32:47]: Deposito no valor de 100",
+        "DP [12-10-2025 14:52:53]: Deposito no valor de 504",
+        "TF [12-10-2025 10:22:34]: Transferencia no valor de 457.61 para User3:PT5000020123123456789002",
+        "LV [12-10-2025 17:03:22]: Levantamento no valor de 21",
+        "DP [12-10-2025 09:14:33]: Deposito no valor de 504",
+        "TF [12-10-2025 13:41:08]: Transferencia no valor de 312 para User3:PT5000020123123456789002",
+        "LV [12-10-2025 11:24:17]: Levantamento no valor de 100",
+        "LV [12-10-2025 19:15:50]: Levantamento no valor de 54.77",
+        "TF [12-10-2025 20:43:12]: Transferencia no valor de 329.99 para Rui Sigma:PT5000020123123456789001",
+        "LV [12-10-2025 16:50:25]: Levantamento no valor de 12",
+        "DP [12-10-2025 15:10:12]: Deposito no valor de 29",
+        "TF [12-10-2025 18:22:09]: Transferencia no valor de 500 para Rui Sigma:PT5000020123123456789001",
+        "TF [12-10-2025 20:05:58]: Transferencia no valor de 12 para Rui Sigma:PT5000020123123456789001",
+        "TF [12-10-2025 21:00:00]: Transferencia no valor de 21 para Rui Sigma:PT5000020123123456789001",
+        "LV [12-10-2025 21:32:47]: Levantamento no valor de 51",
+        "DP [12-10-2025 21:32:53]: Deposito no valor de 321",
+        "LV [12-10-2025 21:36:34]: Levantamento no valor de 10",
+        "DP [12-10-2025 22:01:56]: Deposito no valor de 1"
+    ]
     },
     {
-        "IBAN": "PT5000020123123456789001",
-        "credit_card": "02",
-        "pin": "2444",
-        "name": "Rui Sigma",
-        "balance": "3747.48",
-        "history": [
-            "TF: Transferencia no valor de 200 para Sergio:PT5000020123123456789000",
-            "TF: Transferencia no valor de 20 para Sergio:PT5000020123123456789000"
-        ]
+    "IBAN": "PT5000020123123456789001",
+    "credit_card": "02",
+    "pin": "2444",
+    "name": "Rui Sigma",
+    "balance": "4610.47",
+    "history": [
+        "TF [12-10-2025 07:45:33]: Transferencia no valor de 200 para Sergio:PT5000020123123456789000",
+        "TF [12-10-2025 12:10:22]: Transferencia no valor de 20 para Sergio:PT5000020123123456789000"
+    ]
     },
     {
         "IBAN": "PT5000020123123456789002",
         "credit_card": "0000-0000-0000-0003",
         "pin": "0003",
         "name": "User3",
-        "balance": "1000",
+        "balance": "1769.61",
         "history": []
     },
     {

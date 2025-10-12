@@ -1,4 +1,5 @@
 from decimal import Decimal
+from datetime import datetime #para o historico
 
 import Functions
 
@@ -21,11 +22,10 @@ class User:
         input()   
         
     def LevantarSaldo(self, Users, file="dataBase.json"):
-        
-        #TODO func (input_string)
+                
         while True:
             Functions.clear_console()
-            print("Qual o montante que deseja levantar?")
+            print(f"Qual o montante que deseja levantar?(Saldo Disponivel: {self.balance})")
             ammount = Functions.get_cast_input(Decimal, "(Insira valor superior a 10): ")
             match ammount:
                 case None:
@@ -47,7 +47,7 @@ class User:
 
             print("Ejetando o montante requisitado...")
             self.balance -= ammount
-            self.history.append(f"LV: Levantamento no valor de {ammount}")
+            self.history.append(f"LV [{datetime.now().strftime('%d-%m-%Y %H:%M:%S')}]: Levantamento no valor de {ammount}")
 
             Functions.save_users(Users, file)
             print("Saldo atualizado com sucesso.")
@@ -58,7 +58,7 @@ class User:
         while True:
             Functions.clear_console()
             print("Insira por favor o dinheiro no local indicado...")
-            ammount = Functions.get_cast_input(Decimal, "> Inserir quantia superior a 10 : ")
+            ammount = Functions.get_cast_input(Decimal, "> Montante : ")
             match ammount:
                 case None:
                     print("Operação cancelada")
@@ -71,20 +71,19 @@ class User:
                     continue
             
             print("Processando...")
-            if ammount < 10:
-                print("!!! Erro: Montante invalido! Verifique se o valor que introduziu e superior a 10.")
-                print("(Pressione Enter para tentar de novo)")
+            if ammount <= 0:
+                print("!!! Erro: Montante invalido! Verifique se o valor que introduziu é positivo.")
+                print("(Pressione uma tecla para tentar de novo)")
+                input()
                 continue
             
             self.balance += ammount
-            self.history.append(f"DP: Deposito no valor de {ammount}")
+            self.history.append(f"DP [{datetime.now().strftime('%d-%m-%Y %H:%M:%S')}]: Deposito no valor de {ammount}")
             
             Functions.save_users(Users, file)
             print("Saldo atualizado com sucesso.")
             input()
-            return
-            
-            
+            return                        
     
     def TransferirPara(self, Users, file="dataBase.json"):
         while True:
@@ -138,17 +137,20 @@ class User:
             print("Transferindo para destinatario...")
             recipient.balance += ammount
             self.balance -= ammount
-            self.history.append(f"TF: Transferencia no valor de {ammount} para {recipient.name}:{iban}")
+            self.history.append(f"TF [{datetime.now().strftime('%d-%m-%Y %H:%M:%S')}]: Transferencia no valor de {ammount} para {recipient.name}:{iban}")
             
             Functions.save_users(Users, file)
             print("Saldo atualizado com sucesso.")
             input()
             return
-                
-            
-                
-                
-                
-            
-                
-
+               
+    def ConsultarMovimentos(self, Users):
+        counter = 0
+        for movement in reversed(self.history):        
+            print(movement)
+            if counter == 10:
+                input()
+                return
+            counter += 1
+        input()
+        return

@@ -44,7 +44,7 @@ while True: # The ATM cannot be turned off by users, so this cycle can stay runn
                 case "4": # Transfer to user
                     user.TransferirPara(Users)
                 case "5": # Display transfer history
-                    user.MostrarHistorico(Users) #TODO 
+                    user.ConsultarMovimentos(Users)
                 case _:
                     print("!Insira uma opção valida!")
                     input()
